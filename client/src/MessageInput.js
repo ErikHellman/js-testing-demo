@@ -1,21 +1,22 @@
-import { useState } from 'react';
-import { InputGroup, Input } from "rsuite";
-import SendIcon from '@rsuite/icons/Send';
+/* eslint-disable react/prop-types */
+import { React, useState } from 'react'
+import { InputGroup, Input } from 'rsuite'
+import SendIcon from '@rsuite/icons/Send'
 
-const MessageInput = ({placeholder, ...props}) => {
-    const [messageInput, setMessageInput] = useState('');
+const MessageInput = ({ placeholder, ...props }) => {
+  const [messageInput, setMessageInput] = useState('')
 
-    return (
-        <InputGroup>
-            <Input placeholder={placeholder} value={messageInput} onChange={setMessageInput}/>
-            <InputGroup.Button onClick={() => {
-                props.onSend({'message':messageInput})
-                setMessageInput('');
-            }}>
-                <SendIcon />
-            </InputGroup.Button>
-        </InputGroup>
-    )
+  return (
+    <InputGroup>
+      <Input placeholder={placeholder} value={messageInput} onChange={setMessageInput} />
+      <InputGroup.Button onClick={() => {
+        props.onSend({ message: messageInput })
+        setMessageInput('')
+      }}>
+        <SendIcon />
+      </InputGroup.Button>
+    </InputGroup>
+  )
 }
 
-export default MessageInput;
+export default MessageInput

@@ -1,21 +1,21 @@
-import { Container, Header, Content, Button, ButtonToolbar } from 'rsuite';
-import ChatMessages from './ChatMessages';
-import 'rsuite/dist/rsuite.min.css';
-import MessageInput from './MessageInput';
+import { Container, Header, Content, Button, ButtonToolbar } from 'rsuite'
+import ChatMessages from './ChatMessages'
+import 'rsuite/dist/rsuite.min.css'
+import MessageInput from './MessageInput'
 import { fetchMessages, sendMessage } from './chatApi'
-import { useState } from 'react';
+import { React, useState } from 'react'
 
-function App() {
-  const [messages, setMessages] = useState([]);
+function App () {
+  const [messages, setMessages] = useState([])
 
   const loadMessages = async () => {
-    const messages = await fetchMessages();
-    console.log('Got new message:', messages);
+    const messages = await fetchMessages()
+    console.log('Got new message:', messages)
     setMessages(messages)
   }
 
   const sendAndUpdate = async (message) => {
-    const updated = await sendMessage(message);
+    const updated = await sendMessage(message)
     setMessages(updated)
   }
 
@@ -36,16 +36,16 @@ function App() {
         </Content>
       </Container>
     </div>
-  );
+  )
 }
 
 const styles = {
-  'padding': '1em',
-  'width': '50vw'
+  padding: '1em',
+  width: '50vw'
 }
 
 const buttonStyles = {
-  'marginBottom': '1.5em'
+  marginBottom: '1.5em'
 }
 
-export default App;
+export default App
